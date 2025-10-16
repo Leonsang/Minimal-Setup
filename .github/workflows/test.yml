@@ -15,7 +15,7 @@ jobs:
 
     - name: Test setup script syntax
       run: |
-        Get-Content setup.bat | ForEach-Object {
+        Get-Content ./setup.bat | ForEach-Object {
           if ($_ -match "@echo off|echo|set|if|goto|call|pause|exit") {
             Write-Host "Valid batch command: $_"
           }
@@ -24,7 +24,7 @@ jobs:
 
     - name: Validate JSON configs
       run: |
-        Get-ChildItem -Path "workspaces/*.json" | ForEach-Object {
+        Get-ChildItem -Path "./workspaces/*.json" | ForEach-Object {
           try {
             Get-Content $_.FullName | ConvertFrom-Json | Out-Null
             Write-Host "Valid JSON: $($_.Name)"
@@ -38,7 +38,7 @@ jobs:
     - name: Test devcontainer config
       run: |
         try {
-          Get-Content ".devcontainer/devcontainer.json" | ConvertFrom-Json | Out-Null
+          Get-Content "./.devcontainer/devcontainer.json" | ConvertFrom-Json | Out-Null
           Write-Host "Valid devcontainer.json"
         } catch {
           Write-Error "Invalid devcontainer.json"
