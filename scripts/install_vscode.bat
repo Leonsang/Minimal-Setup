@@ -72,6 +72,9 @@ code --install-extension ms-vscode.theme-monokai-dimmed
 code --install-extension pkief.material-icon-theme
 code --install-extension streetsidesoftware.code-spell-checker
 
+REM Claude Code
+code --install-extension Anthropic.claude-code
+
 echo.
 echo Configurando settings.json de VS Code...
 if not exist "%APPDATA%\Code\User" mkdir "%APPDATA%\Code\User"

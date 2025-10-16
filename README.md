@@ -53,6 +53,21 @@ Este repositorio contiene scripts automatizados para configurar rápidamente un 
 - React, Vue, Angular CLIs
 - ESLint, Prettier
 
+### 7. **WSL + Terminal**
+- Windows Subsystem for Linux
+- Windows Terminal + PowerShell 7
+- Ubuntu distribution
+
+### 8. **Terminal Mejorado**
+- Windows Terminal
+- PowerShell 7
+- Configuración optimizada
+
+### 9. **Claude AI**
+- Claude Desktop app
+- Claude Code CLI
+- VS Code extension
+
 ## 📁 Estructura del Proyecto
 
 ```
@@ -65,7 +80,11 @@ Minimal-Setup/
 │   ├── install_vscode.bat
 │   ├── configure_git.bat
 │   ├── install_data_tools.bat
-│   └── install_nodejs.bat
+│   ├── install_nodejs.bat
+│   ├── install_terminal.bat
+│   ├── install_wsl.bat
+│   ├── install_claude.bat
+│   └── create_project.bat
 ├── workspaces/                  # Configuraciones de VS Code
 │   ├── python-data-science.json
 │   ├── web-development.json
@@ -121,6 +140,11 @@ code --add workspaces/docker-development.json
 - **DBeaver**: Cliente universal de DB
 - **Apache Spark**: Big data processing
 - **Cloud CLIs**: Azure y AWS
+
+### Claude AI Tools
+- **Claude Desktop**: App nativa para Windows
+- **Claude Code**: CLI para desarrollo asistido por AI
+- **VS Code Extension**: Integración directa con el editor
 
 ## 🚨 Requisitos
 

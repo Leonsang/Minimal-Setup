@@ -22,8 +22,9 @@ echo 5. Data Engineering completo
 echo 6. Web Development
 echo 7. Configuracion con WSL (Linux en Windows)
 echo 8. Solo Terminal mejorado
+echo 9. Solo Claude Desktop + Claude Code
 echo.
-set /p choice="Ingresa tu opcion (1-8): "
+set /p choice="Ingresa tu opcion (1-9): "
 
 if "%choice%"=="1" goto full_setup
 if "%choice%"=="2" goto python_only
@@ -33,6 +34,7 @@ if "%choice%"=="5" goto data_eng
 if "%choice%"=="6" goto web_dev
 if "%choice%"=="7" goto wsl_setup
 if "%choice%"=="8" goto terminal_only
+if "%choice%"=="9" goto claude_only
 
 echo Opcion invalida
 pause
@@ -45,6 +47,7 @@ call "%~dp0scripts\install_python_uv.bat"
 call "%~dp0scripts\install_docker.bat"
 call "%~dp0scripts\install_vscode.bat"
 call "%~dp0scripts\configure_git.bat"
+call "%~dp0scripts\install_claude.bat"
 goto end
 
 :python_only
@@ -62,6 +65,7 @@ echo Instalando herramientas de desarrollo...
 call "%~dp0scripts\install_base.bat"
 call "%~dp0scripts\install_vscode.bat"
 call "%~dp0scripts\configure_git.bat"
+call "%~dp0scripts\install_claude.bat"
 goto end
 
 :data_eng
@@ -95,6 +99,11 @@ goto end
 :terminal_only
 echo Instalando solo Terminal mejorado...
 call "%~dp0scripts\install_terminal.bat"
+goto end
+
+:claude_only
+echo Instalando Claude Desktop y Claude Code...
+call "%~dp0scripts\install_claude.bat"
 goto end
 
 :end
