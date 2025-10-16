@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "Dockerfile*": "dockerfile",
+      "docker-compose*.yml": "dockercompose",
+      "docker-compose*.yaml": "dockercompose"
+    },
+    "docker.defaultRegistryPath": "",
+    "docker.showStartPage": false
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-azuretools.vscode-docker",
+      "ms-vscode-remote.remote-containers",
+      "redhat.vscode-yaml",
+      "ms-kubernetes-tools.vscode-kubernetes-tools"
+    ]
+  }
+}
