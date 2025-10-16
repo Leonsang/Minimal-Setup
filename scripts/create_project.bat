@@ -14,8 +14,9 @@ if "%project_name%"=="" (
 
 echo.
 echo Creando directorio del proyecto...
-mkdir "C:\dev\%project_name%"
-cd /d "C:\dev\%project_name%"
+if not exist "%USERPROFILE%\dev" mkdir "%USERPROFILE%\dev"
+mkdir "%USERPROFILE%\dev\%project_name%"
+cd /d "%USERPROFILE%\dev\%project_name%"
 
 if /i "%project_type%"=="python" goto create_python
 if /i "%project_type%"=="web" goto create_web
@@ -68,4 +69,4 @@ set /p open_vscode=""
 if /i "%open_vscode%"=="y" code .
 
 echo.
-echo Proyecto %project_name% creado en C:\dev\%project_name%
+echo Proyecto %project_name% creado en %USERPROFILE%\dev\%project_name%

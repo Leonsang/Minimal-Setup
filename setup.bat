@@ -40,61 +40,61 @@ exit /b 1
 
 :full_setup
 echo Iniciando configuracion completa...
-call scripts\install_base.bat
-call scripts\install_python_uv.bat
-call scripts\install_docker.bat
-call scripts\install_vscode.bat
-call scripts\configure_git.bat
+call "%~dp0scripts\install_base.bat"
+call "%~dp0scripts\install_python_uv.bat"
+call "%~dp0scripts\install_docker.bat"
+call "%~dp0scripts\install_vscode.bat"
+call "%~dp0scripts\configure_git.bat"
 goto end
 
 :python_only
 echo Instalando solo Python con uv...
-call scripts\install_python_uv.bat
+call "%~dp0scripts\install_python_uv.bat"
 goto end
 
 :docker_only
 echo Instalando solo Docker...
-call scripts\install_docker.bat
+call "%~dp0scripts\install_docker.bat"
 goto end
 
 :dev_tools
 echo Instalando herramientas de desarrollo...
-call scripts\install_base.bat
-call scripts\install_vscode.bat
-call scripts\configure_git.bat
+call "%~dp0scripts\install_base.bat"
+call "%~dp0scripts\install_vscode.bat"
+call "%~dp0scripts\configure_git.bat"
 goto end
 
 :data_eng
 echo Configuracion para Data Engineering...
-call scripts\install_base.bat
-call scripts\install_python_uv.bat
-call scripts\install_docker.bat
-call scripts\install_data_tools.bat
-call scripts\install_vscode.bat
-call scripts\configure_git.bat
+call "%~dp0scripts\install_base.bat"
+call "%~dp0scripts\install_python_uv.bat"
+call "%~dp0scripts\install_docker.bat"
+call "%~dp0scripts\install_data_tools.bat"
+call "%~dp0scripts\install_vscode.bat"
+call "%~dp0scripts\configure_git.bat"
 goto end
 
 :web_dev
 echo Configuracion para Web Development...
-call scripts\install_base.bat
-call scripts\install_nodejs.bat
-call scripts\install_docker.bat
-call scripts\install_vscode.bat
-call scripts\configure_git.bat
+call "%~dp0scripts\install_base.bat"
+call "%~dp0scripts\install_nodejs.bat"
+call "%~dp0scripts\install_docker.bat"
+call "%~dp0scripts\install_vscode.bat"
+call "%~dp0scripts\configure_git.bat"
 goto end
 
 :wsl_setup
 echo Configuracion con WSL (Linux en Windows)...
-call scripts\install_base.bat
-call scripts\install_wsl.bat
-call scripts\install_terminal.bat
-call scripts\install_vscode.bat
-call scripts\configure_git.bat
+call "%~dp0scripts\install_base.bat"
+call "%~dp0scripts\install_wsl.bat"
+call "%~dp0scripts\install_terminal.bat"
+call "%~dp0scripts\install_vscode.bat"
+call "%~dp0scripts\configure_git.bat"
 goto end
 
 :terminal_only
 echo Instalando solo Terminal mejorado...
-call scripts\install_terminal.bat
+call "%~dp0scripts\install_terminal.bat"
 goto end
 
 :end
