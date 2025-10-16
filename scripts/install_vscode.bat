@@ -10,13 +10,24 @@ if %errorLevel% equ 0 (
     goto install_extensions
 )
 
-echo Instalando VS Code via Chocolatey...
+echo Instalando VS Code con winget...
+winget install Microsoft.VisualStudioCode --silent --accept-package-agreements --accept-source-agreements
+
+if %errorLevel% equ 0 (
+    echo VS Code instalado correctamente via winget
+    goto refresh_path
+)
+
+echo.
+echo Winget no disponible. Usando Chocolatey...
 choco install -y vscode
 
 if %errorLevel% neq 0 (
     echo Error instalando VS Code
     exit /b 1
 )
+
+:refresh_path
 
 REM Actualizar PATH
 call refreshenv

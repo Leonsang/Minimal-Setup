@@ -6,8 +6,13 @@ echo ====================================
 echo Verificando si Git ya esta instalado...
 git --version >nul 2>&1
 if %errorLevel% neq 0 (
-    echo Instalando Git...
-    choco install -y git
+    echo Instalando Git con winget...
+    winget install Git.Git --silent --accept-package-agreements --accept-source-agreements
+
+    if %errorLevel% neq 0 (
+        echo Winget no disponible. Usando Chocolatey...
+        choco install -y git
+    )
     call refreshenv
 )
 

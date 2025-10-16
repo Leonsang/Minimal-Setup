@@ -3,13 +3,24 @@ echo ====================================
 echo   INSTALANDO NODE.JS Y HERRAMIENTAS
 echo ====================================
 
-echo Instalando Node.js LTS...
+echo Instalando Node.js LTS con winget...
+winget install OpenJS.NodeJS.LTS --silent --accept-package-agreements --accept-source-agreements
+
+if %errorLevel% equ 0 (
+    echo Node.js instalado correctamente via winget
+    goto refresh_path
+)
+
+echo.
+echo Winget no disponible. Usando Chocolatey...
 choco install -y nodejs-lts
 
 if %errorLevel% neq 0 (
     echo Error instalando Node.js
     exit /b 1
 )
+
+:refresh_path
 
 call refreshenv
 

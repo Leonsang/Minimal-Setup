@@ -3,19 +3,29 @@ echo ====================================
 echo   INSTALANDO WINDOWS TERMINAL
 echo ====================================
 
-echo Instalando Windows Terminal...
-choco install -y microsoft-windows-terminal
+echo Instalando Windows Terminal con winget...
+winget install Microsoft.WindowsTerminal --silent --accept-package-agreements --accept-source-agreements
 
 if %errorLevel% neq 0 (
-    echo Intentando instalar via Microsoft Store...
-    powershell -Command "Start-Process ms-windows-store://pdp/?productid=9N0DX20HK701"
-    echo Por favor completa la instalacion desde Microsoft Store
-    pause
+    echo Winget no disponible. Usando Chocolatey...
+    choco install -y microsoft-windows-terminal
+
+    if %errorLevel% neq 0 (
+        echo Intentando instalar via Microsoft Store...
+        powershell -Command "Start-Process ms-windows-store://pdp/?productid=9N0DX20HK701"
+        echo Por favor completa la instalacion desde Microsoft Store
+        pause
+    )
 )
 
 echo.
-echo Instalando PowerShell 7...
-choco install -y powershell-core
+echo Instalando PowerShell 7 con winget...
+winget install Microsoft.PowerShell --silent --accept-package-agreements --accept-source-agreements
+
+if %errorLevel% neq 0 (
+    echo Winget no disponible. Usando Chocolatey...
+    choco install -y powershell-core
+)
 
 echo.
 echo Configurando perfil de PowerShell...

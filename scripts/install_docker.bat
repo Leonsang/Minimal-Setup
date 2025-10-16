@@ -11,6 +11,16 @@ if %errorLevel% equ 0 (
     goto end
 )
 
+echo Instalando Docker Desktop con winget...
+winget install Docker.DockerDesktop --silent --accept-package-agreements --accept-source-agreements
+
+if %errorLevel% equ 0 (
+    echo Docker Desktop instalado correctamente via winget
+    goto success
+)
+
+echo.
+echo Winget no disponible o fallo. Usando metodo alternativo...
 echo Descargando Docker Desktop...
 curl -L "https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe" -o "%TEMP%\DockerDesktopInstaller.exe"
 
@@ -20,8 +30,6 @@ if %errorLevel% neq 0 (
 )
 
 echo Instalando Docker Desktop...
-echo NOTA: Se abrira el instalador. Sigue las instrucciones y reinicia cuando se complete.
-
 start /wait "%TEMP%\DockerDesktopInstaller.exe" install --quiet
 
 if %errorLevel% neq 0 (
@@ -29,6 +37,7 @@ if %errorLevel% neq 0 (
     exit /b 1
 )
 
+:success
 echo.
 echo Docker Desktop instalado
 echo IMPORTANTE: Reinicia tu computadora y luego inicia Docker Desktop
