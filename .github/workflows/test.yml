@@ -17,7 +17,7 @@ jobs:
       run: |
         Get-Content setup.bat | ForEach-Object {
           if ($_ -match "@echo off|echo|set|if|goto|call|pause|exit") {
-            Write-Host "✓ Valid batch command: $_"
+            Write-Host "Valid batch command: $_"
           }
         }
       shell: powershell
@@ -27,9 +27,9 @@ jobs:
         Get-ChildItem -Path "workspaces/*.json" | ForEach-Object {
           try {
             Get-Content $_.FullName | ConvertFrom-Json | Out-Null
-            Write-Host "✓ Valid JSON: $($_.Name)"
+            Write-Host "Valid JSON: $($_.Name)"
           } catch {
-            Write-Error "✗ Invalid JSON: $($_.Name)"
+            Write-Error "Invalid JSON: $($_.Name)"
             exit 1
           }
         }
@@ -39,9 +39,9 @@ jobs:
       run: |
         try {
           Get-Content ".devcontainer/devcontainer.json" | ConvertFrom-Json | Out-Null
-          Write-Host "✓ Valid devcontainer.json"
+          Write-Host "Valid devcontainer.json"
         } catch {
-          Write-Error "✗ Invalid devcontainer.json"
+          Write-Error "Invalid devcontainer.json"
           exit 1
         }
       shell: powershell
